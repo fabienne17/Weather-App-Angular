@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Weather Angular</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Stylesheets and fonts -->
+    <link rel="stylesheet" type="text/css" href="css/weather.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/1.3.2/css/weather-icons.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,700,400' rel='stylesheet' type='text/css'>
+    
+    <!-- Include JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Include the AngularJS library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+
+    <!--Include bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+
+  <body ng-app="Weather">
+
+    <div class="main" ng-controller="MainController">
+      <div class="container text-center">
+
+          <div class="row">
+            <div class="panel panel-success">
+              <div class="panel-heading">
+                <p>Local Weather</p>
+                <p><small>last update {{ today | date: "shortTime" }}</small></p>
+              </div>
+              <div class="panel-body">
+                <h2>{{ Data.city }}, {{ Data.country }}</h2>
+                <div class="row">
+                  <div class="weekday">
+                    <h3>{{ today | date: "EEEE, MMM d" }}</h3>
+                    <h1>{{ Data.temp }}&deg;<span class="temp" ng-click="Data.sys()"> {{Data.unit}}</span></h1>
+                  </div>
+                  <div class="weather">
+                    <img ng-src="http://openweathermap.org/img/w/{{ Data.icon }}.png">
+                    <p>{{ Data.description }}</p>
+                  </div>
+                  <div class="description"><p>click on the temperature to change from &deg;C to &deg;F</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+      </div>
+    </div>
+
+    <!-- Modules -->
+    <script src="js/app.js"></script>
+
+    <!-- Controllers -->
+    <script src="js/controllers/MainController.js"></script>
+
+    <!-- Services -->
+    <script src="js/services/WeatherAPI.js"></script>
+
+    <!-- Directives -->
+
+
+  </body>
+</html>
