@@ -1,4 +1,4 @@
-# Markdown Previewer #
+# Weather App #
 ### to launch: ###
 1. runs on localhost:3000
 
